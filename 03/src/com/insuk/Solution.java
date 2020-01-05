@@ -12,49 +12,42 @@ public class Solution {
      * @return
      */
     public int solution(String s) {
+        if (s.length() == 1) return s.length();
         int maxDv = s.length() / 2;
         StringBuilder sb = new StringBuilder();
         List<String> resultList = new ArrayList<>();
+        List<String> wordList;
         for (int i=1; i <= maxDv ; i++){ // i 개로 짜를때
-            String temp = "";
+            wordList = new ArrayList<>();
+            // i 만큼 짤라서 list 에 넣어준다.
+            for (int t=0; t <= s.length()-i; t+=i){
+                wordList.add(s.substring(t, t+i));
+            }
+
             int count = 1;
             sb.delete(0, sb.length());
-            for (int j=0; j < s.length(); ){
-                if (j+i > s.length()){
-                    sb.append(s.substring(j));
-                    break;
-                }
-
-                String comp = s.substring(j, j+i);
-                if(temp.equals(comp)){
-                    count ++;
+            for (int j=0; j < wordList.size() - 1; j++){
+                if(wordList.get(j).equals(wordList.get(j+1))){
+                    count++;
                 }else {
-                    temp = comp;
+                    if (count > 1) sb.append(count).append(wordList.get(j));
+                    else sb.append(wordList.get(j));
                     count = 1;
                 }
-
-                sb.append(count).append(temp);
-                j = j+i;
             }
             //System.out.println(sb.toString());
-            StringBuilder tempSb = new StringBuilder();
-            for (int k=0; k < sb.toString().length(); k = k+(i+1)){
-                if (k+(i+1) + (i+1) > sb.toString().length()){
-                    tempSb.append(sb.substring(k));
-                    break;
-                }
-                String str = sb.toString().substring(k, k+(i+1));
-                String nextStr = sb.toString().substring(k+(i+1), k+(i+1) + (i+1));
-                if (Integer.parseInt(str.substring(0,1)) < Integer.parseInt(nextStr.substring(0,1))){
-                    tempSb.append(str.replaceAll("[a-z0-9]", "1"));
-                } else{
-                    tempSb.append(str);
-                }
+            if (count > 1) sb.append(count).append(wordList.get(wordList.size() - 1));
+            else  sb.append(wordList.get(wordList.size() - 1));
+            //System.out.println(sb.toString());
+            // i 만큼 짜르고 남은 문자들은 뒤에 덧붙여준다.
+            if (s.length()  > sb.length()){
+                int remainderIndex = s.length() % i;
+               //System.out.println("r = " + remainderIndex);
+                sb.append(s, s.length()-remainderIndex, s.length());
             }
-            String result = tempSb.toString().replaceAll("1", "");
-            //System.out.println(result);
-            //System.out.println("-----------------");
-            resultList.add(result);
+            //System.out.println(sb.toString());
+            resultList.add(sb.toString());
+            //System.out.println("-----");
         }
 
         List<Integer> sizeList = resultList.stream().map(String::length).sorted().limit(1).collect(Collectors.toList());
