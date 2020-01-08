@@ -5,8 +5,8 @@ import java.util.Queue;
 
 public class Solution {
 
-    private final int CACHE_HIT_TIME = 1;
-    private final int CACHE_MISS_TIME = 5;
+    private final static int CACHE_HIT_TIME = 1;
+    private final static int CACHE_MISS_TIME = 5;
 
     /**
      * 2018 KAKAO BLIND RECRUITMENT > [1차]캐시
