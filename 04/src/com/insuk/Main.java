@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String[][] tickets = {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}};
-        //String[][] tickets = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL", "SFO"}};
+        //String[][] tickets = {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}};
+        String[][] tickets = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL", "SFO"}};
         //String[][] tickets = {{"ICN", "ATL"}, {"ICN", "ATL"}, {"ATL", "TAL"}, {"ATL", "SFO"}, {"SFO", "ICN"}, {"TAL", "ICN"}};
         // ICN -> ATL -> SFO -> ICN -> ATL -> TAL -> ICN
         // ICN -> ATL -> TAL -> ICN -> ATL -> SFO -> ICN
