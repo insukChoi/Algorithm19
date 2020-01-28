@@ -60,7 +60,7 @@ public class Solution {
             System.out.println("answer[1] = " + answer[1]);
             if (i == 0) {
                 i = name.length();
-                System.out.println("i가 0이니 ... " + i);
+                System.out.println("i가 0이니 .. 맨뒤 인덱스로.." + i);
             }
             // 체크한다.
             if (i > backIndex){
