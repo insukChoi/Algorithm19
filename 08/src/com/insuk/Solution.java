@@ -27,6 +27,7 @@ public class Solution {
         System.out.println("노빠꾸 : " + answer[0]);
 
         // 2) 한번 빠꾸하면 그대로 계속 빠꾸만!
+        // 2 -1) 어디서부터 빠꾸해야할지 backIndex 를 찾는다.
         int backIndex = 0;
         for (int i=0; i < name.length(); i++){
             ch = name.charAt(i);
@@ -36,8 +37,14 @@ public class Solution {
             }
         }
 
+        // 2 -2) backIndex가 맨마지막이면 맨첫번째 A부터 빠꾸
+        if (backIndex == name.length() -1){
+            backIndex = 0;
+        }
+
         answer[1] = backIndex;
 
+        // 2 -3) backIndex 부터 무조건 계속 빠꾸만
         System.out.println("시작 : answer[1] = " + answer[1]);
         int i=backIndex;
         do{
