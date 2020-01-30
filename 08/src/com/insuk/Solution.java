@@ -45,40 +45,23 @@ public class Solution {
         answer[1] = backIndex;
 
         // 2 -3) backIndex 부터 무조건 계속 빠꾸만
-        System.out.println("시작 : answer[1] = " + answer[1]);
         int i=backIndex;
         do{
-            System.out.println("index = " + i);
             ch = name.charAt(i);
-            System.out.println("ch = " + ch);
             if (ch != 'A') {
                 topCnt = ch - 'A';
                 downCnt = ('Z' - ch) + 1;
                 answer[1] += Math.min(topCnt, downCnt);
             }
-
-            System.out.println("answer[1] = " + answer[1]);
-            if (i == 0) {
-                i = name.length();
-                System.out.println("i가 0이니 .. 맨뒤 인덱스로.." + i);
-            }
-            // 체크한다.
-            if (i > backIndex){
+            if (i == 0) i = name.length();  // i가 0이니.. 맨뒤 인덱스로..
+            if (i > backIndex){ // A 이외의 문자가 있는지 체크
                 temp = name.substring(backIndex + 1, i);
-                System.out.println("1) temp = " + temp);
-                if (!hasNotA(temp)) break;
-            }else{
-                temp = name.substring(i, backIndex+1);
-                System.out.println("2) temp = " + temp);
                 if (!hasNotA(temp)) break;
             }
             answer[1] ++;
             i --;
-            System.out.println("answer[1] = " + answer[1]);
-            System.out.println("--------------");
 
         }while (i != backIndex);
-
         System.out.println("한번 빠꾸 후 계속 빠꾸 : " + answer[1]);
 
         return Math.min(answer[0], answer[1]);
