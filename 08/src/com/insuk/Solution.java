@@ -7,20 +7,12 @@ package com.insuk;
 public class Solution {
     public int solution(String name) {
         int[] answer = new int[2];
-
         char ch;
-        int topCnt;
-        int downCnt;
-        String temp;
 
         // 1) 노빠꾸
         for (int i=0; i < name.length(); i++){
             ch = name.charAt(i);
-            if (ch != 'A'){
-                topCnt = ch - 'A';
-                downCnt = ('Z' - ch) + 1;
-                answer[0] += Math.min(topCnt, downCnt);
-            }
+            if (ch != 'A') answer[0] += getMinCnt(ch);
             if (!hasNotA(name.substring(i))) break;
             if (i != 0) answer[0] ++;
         }
@@ -38,33 +30,36 @@ public class Solution {
         }
 
         // 2 -2) backIndex가 맨마지막이면 맨첫번째 A부터 빠꾸
-        if (backIndex == name.length() -1){
-            backIndex = 0;
-        }
-
-        answer[1] = backIndex;
+        if (backIndex == name.length() -1) backIndex = 0;
 
         // 2 -3) backIndex 부터 무조건 계속 빠꾸만
-        int i=backIndex;
+        answer[1] = backIndex;
+        int i = backIndex;
         do{
             ch = name.charAt(i);
-            if (ch != 'A') {
-                topCnt = ch - 'A';
-                downCnt = ('Z' - ch) + 1;
-                answer[1] += Math.min(topCnt, downCnt);
-            }
+            if (ch != 'A') answer[1] += getMinCnt(ch);
             if (i == 0) i = name.length();  // i가 0이니.. 맨뒤 인덱스로..
             if (i > backIndex){ // A 이외의 문자가 있는지 체크
-                temp = name.substring(backIndex + 1, i);
-                if (!hasNotA(temp)) break;
+                if (!hasNotA(name.substring(backIndex + 1, i)))
+                    break;
             }
             answer[1] ++;
             i --;
-
         }while (i != backIndex);
         System.out.println("한번 빠꾸 후 계속 빠꾸 : " + answer[1]);
 
         return Math.min(answer[0], answer[1]);
+    }
+
+    /**
+     * 주어진 파라미터가 A에서 가장 가까운 방향의 카운트
+     * @param ch
+     * @return
+     */
+    private int getMinCnt(char ch) {
+        int topCnt = ch - 'A';
+        int downCnt = ('Z' - ch) + 1;
+        return Math.min(topCnt, downCnt);
     }
 
     /**
