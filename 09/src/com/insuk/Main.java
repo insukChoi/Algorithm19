@@ -31,14 +31,6 @@ public class Main {
                 {"600","apeach"}
         };
 
-        String[][] relation2 = {
-                {"100"},
-                {"200"},
-                {"300"},
-                {"400"},
-                {"500"},
-                {"600"}
-        };
 
         int r = solution.solution(relation);
         System.out.println(r);
