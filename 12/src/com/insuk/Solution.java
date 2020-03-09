@@ -4,6 +4,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 2018 KAKAO BLIND RECRUITMENT [1차] 셔틀버스
+ * https://programmers.co.kr/learn/courses/30/lessons/17678
+ */
 public class Solution {
     public String solution(final int n /*셔틀 운행 횟수*/,
                            final int t /*셔틀 운행 간격*/,
