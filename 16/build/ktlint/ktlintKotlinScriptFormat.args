@@ -1,0 +1,5 @@
+--reporter=plain
+--color
+--reporter=plain,output=/Users/infuk/IdeaProjects/Algorithm19/16/build/reports/ktlint/ktlintKotlinScriptFormat.txt
+build.gradle.kts
+-F

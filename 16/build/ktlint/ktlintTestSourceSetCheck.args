@@ -1,0 +1,4 @@
+--reporter=plain
+--color
+--reporter=plain,output=/Users/infuk/IdeaProjects/Algorithm19/16/build/reports/ktlint/ktlintTestSourceSetCheck.txt
+src/test/kotlin/SolutionTest.kt
