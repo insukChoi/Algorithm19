@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="653.SolutionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-04-12T06:16:01" hostname="choeinseog-ui-iMac.local" time="0.018">
+  <properties/>
+  <testcase name="예제1()" classname="653.SolutionTest" time="0.016"/>
+  <testcase name="예제2()" classname="653.SolutionTest" time="0.0"/>
+  <testcase name="예제3()" classname="653.SolutionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
